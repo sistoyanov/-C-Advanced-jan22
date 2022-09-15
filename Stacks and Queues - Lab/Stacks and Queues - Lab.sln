@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03. Simple Calculator", "03
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Matching Brackets", "04. Matching Brackets\04. Matching Brackets.csproj", "{CC09DF90-96C0-4C9F-9002-0C78BBA19BF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Print Even Numbers", "05. Print Even Numbers\05. Print Even Numbers.csproj", "{E678004F-F409-428C-9DB0-1D835640E569}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{CC09DF90-96C0-4C9F-9002-0C78BBA19BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC09DF90-96C0-4C9F-9002-0C78BBA19BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC09DF90-96C0-4C9F-9002-0C78BBA19BF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E678004F-F409-428C-9DB0-1D835640E569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E678004F-F409-428C-9DB0-1D835640E569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E678004F-F409-428C-9DB0-1D835640E569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E678004F-F409-428C-9DB0-1D835640E569}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
