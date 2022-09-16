@@ -21,27 +21,17 @@ namespace _03._Maximum_and_Minimum_Element
                     int elmToPush = commandArg[1];
                     stack.Push(elmToPush);
                 }
-                else if (commandType == 2)
+                else if (commandType == 2 && stack.Any())
                 {
-                    if (stack.Any())
-                    {
                         stack.Pop();
-                    }
-                    
                 }
-                else if (commandType == 3)
+                else if (commandType == 3 && stack.Any())
                 {
-                    if (stack.Any())
-                    {
                         Console.WriteLine(stack.Max());
-                    }
                 }
-                else if (commandType == 4)
+                else if (commandType == 4 && stack.Any())
                 {
-                    if (stack.Any())
-                    {
                         Console.WriteLine(stack.Min());
-                    }
                 }
             }
 
