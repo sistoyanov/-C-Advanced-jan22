@@ -23,10 +23,10 @@ namespace _02._Sum_Matrix_Columns
                 }
             }
 
+            int sum = 0;
+
             for (int col = 0; col < cols; col++)
             {
-                int sum = 0;
-
                 for (int row = 0; row < rows; row++)
                 {
                     sum += matrix[row, col];
