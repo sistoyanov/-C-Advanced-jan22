@@ -29,8 +29,8 @@ namespace _03._Primary_Diagonal
             for (int row = 0; row < rows; row++)
             {
 
-                int indx = 0 + row;
-                sum += matrix[row, indx];
+                int idx = 0 + row;
+                sum += matrix[row, idx];
                 
             }
 
