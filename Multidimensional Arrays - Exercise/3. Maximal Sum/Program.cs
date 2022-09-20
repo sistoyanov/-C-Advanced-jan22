@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace _3._Maximal_Sum
+namespace _03._Maximal_Sum
 {
     internal class Program
     {
