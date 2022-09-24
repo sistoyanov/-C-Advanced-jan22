@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 
 namespace LineNumbers
 {
@@ -22,7 +21,7 @@ namespace LineNumbers
             using (reader)
             {
                 int counter = 0;
-                string line = String.Empty;
+                string line = String.Empty; 
 
                 using (writer)
                 {
