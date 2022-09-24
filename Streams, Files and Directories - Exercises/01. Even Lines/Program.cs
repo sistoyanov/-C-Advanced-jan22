@@ -10,6 +10,7 @@
         static void Main()
         {
             string inputFilePath = @"..\..\..\text.txt";
+            //string outputFilePath = @"..\..\..\output.txt";
 
             Console.WriteLine(ProcessLines(inputFilePath));
         }
@@ -18,7 +19,7 @@
         {
             string output = String.Empty;
             StreamReader reader = new StreamReader(inputFilePath);
-            //StreamWriter writer = new StreamWriter(@"../../../output.txt");
+            //StreamWriter writer = new StreamWriter(outputFilePath);
 
             using (reader)
             {
