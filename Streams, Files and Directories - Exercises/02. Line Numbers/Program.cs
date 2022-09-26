@@ -3,6 +3,7 @@
     using System;
     using System.IO;
     using System.Linq;
+    using System.Text;
 
     public class LineNumbers
     {
@@ -16,33 +17,19 @@
         public static void ProcessLines(string inputFilePath, string outputFilePath)
         {
             string[] lines = File.ReadLines(inputFilePath).ToArray();
+            StringBuilder ouput = new StringBuilder();
 
             for (int i = 0; i < lines.Length; i++)
             {
-                int charCount = 0;
-                int punctuationCount = 0;
+                int charCount = lines[i].Count(ch => char.IsLetter(ch));
+                int punctuationCount = lines[i].Count(ch => char.IsPunctuation(ch));
 
-                char[] currentSentance = lines[i].ToCharArray();
-
-                foreach (var charItem in currentSentance)
-                {
-                    if (Char.IsLetter(charItem))
-                    {
-                        charCount++;
-                    }
-                    else if (charItem != ' ')    
-                    {
-                        punctuationCount++;
-                    }
-                }
+                ouput.AppendLine($"Line {i + 1}: {lines[i]} ({charCount})({punctuationCount})");
                 
-                
-                string currentLine = $"Line {i + 1}: {lines[i]} ({charCount})({punctuationCount}) \n";
-
-
-                File.AppendAllText(outputFilePath, currentLine);
             }
-            
+
+            File.WriteAllText(outputFilePath, ouput.ToString());
+
         }
     }
 }

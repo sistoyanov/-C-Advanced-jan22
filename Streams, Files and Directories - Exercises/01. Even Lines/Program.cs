@@ -4,6 +4,7 @@
     using System.Drawing;
     using System.IO;
     using System.Linq;
+    using System.Text;
 
     public class EvenLines
     {
@@ -17,42 +18,46 @@
 
         public static string ProcessLines(string inputFilePath)
         {
-            string output = String.Empty;
+            StringBuilder output = new StringBuilder();
             StreamReader reader = new StreamReader(inputFilePath);
             //StreamWriter writer = new StreamWriter(outputFilePath);
 
             using (reader)
             {
                 int counter = 0;
-                string line = reader.ReadLine();
+                string line = String.Empty;
 
                 //using (writer)
                 //{
-                    while (line != null)
+                    while ((line = reader.ReadLine())  != null)
                     {
                         if (counter % 2 == 0)
                         {
-                            string[] currentWords = line.Split(' ');
-                            currentWords = currentWords.Reverse().ToArray();
+                            
+                            char[] symbolsToReplace = { '-',',','.','!','?' };
 
-                            for (int i = 0; i < currentWords.Length; i++)
-                            {
-                              currentWords[i] = currentWords[i].Replace('-', '@').Replace(',', '@').Replace('.', '@').Replace('!', '@').Replace('?', '@');
-                            }
+                           foreach (var symbol in symbolsToReplace)
+                           {
+                               if (line.Contains(symbol))
+                               {
+                                   line = line.Replace(symbol, '@');
+                               }
+                           }
 
-                            //writer.WriteLine(String.Join(" ", currentWords));
-                            output += (String.Join(" ", currentWords));
+                           string[] currentWords = line.Split(' ', StringSplitOptions.RemoveEmptyEntries).Reverse().ToArray();
+  
+                           output.AppendLine(String.Join(" ", currentWords));
                         }
 
                         counter++;
-                        line = reader.ReadLine();
+        
                     }
 
                 //}
 
             }
 
-            return output;
+            return output.ToString();
         }
     }
 }
