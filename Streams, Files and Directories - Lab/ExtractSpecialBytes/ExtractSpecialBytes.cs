@@ -2,7 +2,7 @@
 {
     using System;
     using System.IO;
-    public class ExtractSBytes
+    public class ExtractBytes
     {
         static void Main()
         {

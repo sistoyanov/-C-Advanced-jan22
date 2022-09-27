@@ -3,6 +3,7 @@
     using System;
     using System.IO;
     using System.Linq;
+    using System.Security.Cryptography;
 
     public class SplitMergeBinaryFile
     {
@@ -19,10 +20,53 @@
 
         public static void SplitBinaryFile(string sourceFilePath, string partOneFilePath, string partTwoFilePath)
         {
+            FileStream source = new FileStream(sourceFilePath, FileMode.Open);
+            FileStream part1 = new FileStream(partOneFilePath, FileMode.Create);
+            FileStream part2 = new FileStream(partTwoFilePath, FileMode.Create);
+
+            using (source)
+            {
+                using (part1)
+                {
+                    int odd = source.Length % 2 == 1 ? 1 : 0;
+                    byte[] buffer = new byte[source.Length / 2 + odd];
+                    source.Read(buffer);
+                    part1.Write(buffer);
+                }
+
+                using (part2)
+                {
+                    int odd = source.Length % 2 == 1 ? 1 : 0;
+                    byte[] buffer = new byte[source.Length / 2];
+                    source.Read(buffer);
+                    part2.Write(buffer);
+                }
+                
+            }
         }
 
         public static void MergeBinaryFiles(string partOneFilePath, string partTwoFilePath, string joinedFilePath)
         {
+            FileStream joined = new FileStream(joinedFilePath, FileMode.Create);
+            FileStream part1 = new FileStream(partOneFilePath, FileMode.Open);
+            FileStream part2 = new FileStream(partTwoFilePath, FileMode.Open);
+
+            using (joined)
+            {
+                using (part1)
+                {
+                    byte[] buffer = new byte[part1.Length];
+                    part1.Read(buffer);
+                    joined.Write(buffer);
+                }
+
+                using (part2)
+                {
+                    byte[] buffer = new byte[part2.Length];
+                    part2.Read(buffer);
+                    joined.Write(buffer);
+                }
+            }
         }
     }
 }
