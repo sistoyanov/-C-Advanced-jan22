@@ -1,7 +1,6 @@
 ﻿namespace CopyBinaryFile
 {
     using System;
-
     public class CopyBinaryFile
     {
         static void Main()
@@ -14,6 +13,7 @@
 
         public static void CopyFile(string inputFilePath, string outputFilePath)
         {
+            throw new NotImplementedException();
         }
     }
 }
