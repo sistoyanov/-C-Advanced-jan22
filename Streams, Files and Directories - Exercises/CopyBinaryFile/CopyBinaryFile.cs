@@ -1,6 +1,8 @@
 ﻿namespace CopyBinaryFile
 {
     using System;
+    using System.IO;
+
     public class CopyBinaryFile
     {
         static void Main()
@@ -13,7 +15,19 @@
 
         public static void CopyFile(string inputFilePath, string outputFilePath)
         {
-            //throw new NotImplementedException();
+            FileStream reader = new FileStream(inputFilePath, FileMode.Open);
+            FileStream writer = new FileStream(outputFilePath, FileMode.Create);
+
+            using (reader)
+            {
+                byte[] buffer = new byte[reader.Length];
+                reader.Read(buffer, 0, buffer.Length);
+
+                using (writer)
+                {
+                    writer.Write(buffer, 0, buffer.Length);
+                }
+            }
         }
     }
 }
