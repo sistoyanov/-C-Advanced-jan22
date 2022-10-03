@@ -20,7 +20,6 @@ namespace DefiningClasses
 		public Person(string name, int age) : this(age)
 		{
 			this.Name = name;
-			this.Age = age;
 		}
 		
 		private string name;
