@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06. Wardrobe", "06. Wardrob
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07. The V-Logger", "07. The V-Logger\07. The V-Logger.csproj", "{51D2A2E9-1426-4D6F-A867-CB02CAA84B42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08. Ranking", "08. Ranking\08. Ranking.csproj", "{94521B31-7FB4-4A8C-ADA0-E71FBD057087}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09. SoftUni Exam Results", "09. SoftUni Exam Results\09. SoftUni Exam Results.csproj", "{2029638E-492A-4C81-B1AB-9D8CF8F2A566}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{51D2A2E9-1426-4D6F-A867-CB02CAA84B42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51D2A2E9-1426-4D6F-A867-CB02CAA84B42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51D2A2E9-1426-4D6F-A867-CB02CAA84B42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94521B31-7FB4-4A8C-ADA0-E71FBD057087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94521B31-7FB4-4A8C-ADA0-E71FBD057087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94521B31-7FB4-4A8C-ADA0-E71FBD057087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94521B31-7FB4-4A8C-ADA0-E71FBD057087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2029638E-492A-4C81-B1AB-9D8CF8F2A566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2029638E-492A-4C81-B1AB-9D8CF8F2A566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2029638E-492A-4C81-B1AB-9D8CF8F2A566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2029638E-492A-4C81-B1AB-9D8CF8F2A566}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
