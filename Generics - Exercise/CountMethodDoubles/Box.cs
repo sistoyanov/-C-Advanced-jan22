@@ -8,68 +8,37 @@ namespace CountMethodDoubles
 {
     public class Box<T> where T : IComparable<T>
     {
-        //private List<T> list;
-        //private static T comperer;
-        public Box(T value)
+        public Box()
         {
-            Value = value;
+            Value = new List<T>();
         }
-        //public Box(List<T> list, T comperer)
-        //{
-        //    this.list = list;
-        //    Box<T>.comperer = comperer;
-        //}
-
-        public T Value { get; set; }
+        public List<T> Value { get; set; }
 
         public override string ToString()
         {
-            return $"{Value.GetType()}: {Value}";
-        }
+            StringBuilder output = new StringBuilder();
 
-        public int GetValuesGreaterThan<U>(List<T> inputList, T comperer) where U : IComparable<U>
-        {
-            return inputList.Count(item => item.CompareTo(comperer) > 0);
-            this.Value.CompareTo(comperer);
-
-            foreach (var item in inputList)
+            foreach (var item in Value)
             {
-                
+                output.AppendLine($"{typeof(T)}: {item}");
             }
+            return output.ToString().TrimEnd();
         }
 
-        //public int CompareTo(T other) => comperer.CompareTo(other);
+        public int Count(T itemToCompare)
+        {
+            int count = 0;
 
+            foreach (var item in Value)
+            {
+                if (item.CompareTo(itemToCompare) > 0)
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
     }
-
-    //public class Box<T> : IComparable<T> where T : IComparable<T>
-    //{
-    //    private T _data;
-    //    private List<T> _list;
-    //    private static T _element;
-    //    public Box(T data)
-    //    {
-    //        _data = data;
-    //    }
-
-    //    public Box(List<T> list, T element)
-    //    {
-    //        _list = list;
-    //        _element = element;
-    //    }
-
-    //    public override string ToString()
-    //    {
-    //        return $"{_data.GetType()}: {_data}";
-    //    }
-
-    //    public static int GetValuesGreaterThan<U>(List<U> inputList, U element) where U : IComparable<U>
-    //    {
-    //        return inputList.Count(item => item.CompareTo(element) > 0);
-    //    }
-
-    //    public int CompareTo(T other) => _element.CompareTo(other);
-
-    //}
 
 }

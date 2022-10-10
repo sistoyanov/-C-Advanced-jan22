@@ -10,22 +10,17 @@ namespace CountMethodDoubles
         static void Main(string[] args)
         {
             int count = int.Parse(Console.ReadLine());
-            List<Box<double>> boxList = new List<Box<double>>();
+            Box<double> box = new Box<double>();
 
             for (int i = 0; i < count; i++)
             {
-                Box<double> newBox = new Box<double>(double.Parse(Console.ReadLine()));
-                boxList.Add(newBox);
+                double input = double.Parse(Console.ReadLine());
+                box.Value.Add(input);
             }
 
-            double comperer = double.Parse(Console.ReadLine());
-            //int count = GetValuesGreaterThan(boxList, comperer);
-        
-        }
+            double itemToCompare = double.Parse(Console.ReadLine());
 
-        //public static int GetValuesGreaterThan<T>(List<T> inputList, T comperer) where T : IComparable<T>
-        //{
-        //    return inputList.Count(item => item.CompareTo(comperer) > 0);
-        //}
+            Console.WriteLine(box.Count(itemToCompare));
+        }
     }
 }

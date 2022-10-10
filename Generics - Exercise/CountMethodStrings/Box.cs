@@ -4,17 +4,38 @@ using System.Text;
 
 namespace CountMethodStrings
 {
-    public class Box<T> where T : IComparable
+    public class Box<T> where T : IComparable<T>
     {
-        public Box(T value)
+        public Box()
         {
-            this.Value = value;
+            Value = new List<T>();
         }
-        public T Value { get; set; }
+        public List<T> Value { get; set; }
+
         public override string ToString()
         {
-            return this.Value.ToString();
+            StringBuilder output = new StringBuilder();
+
+            foreach (var item in Value)
+            {
+                output.AppendLine($"{typeof(T)}: {item}");
+            }
+            return output.ToString().TrimEnd();
         }
-        
+
+        public int Count (T itemToCompare)
+        {
+            int count = 0;
+
+            foreach (var item in Value)
+            {
+                if (item.CompareTo(itemToCompare) > 0)
+                {
+                    count ++;
+                }
+            }
+
+            return count;
+        }
     }
 }
