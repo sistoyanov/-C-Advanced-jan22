@@ -2,7 +2,7 @@
 
 namespace Tuple
 {
-    public class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
@@ -13,12 +13,12 @@ namespace Tuple
             Tuple<string, string> person = new Tuple<string, string>
             {
                 Item1 = $"{personDetails[0]} {personDetails[1]}",
-                Item2 = $"{personDetails[2]}"
+                Item2 = personDetails[2]
             };
 
             Tuple<string, int> drink = new Tuple<string, int>
             {
-                Item1 = $"{drinkDetails[0]}",
+                Item1 = drinkDetails[0],
                 Item2 = int.Parse(drinkDetails[1])
             };
 
