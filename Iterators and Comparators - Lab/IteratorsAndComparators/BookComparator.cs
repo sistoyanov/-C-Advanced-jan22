@@ -9,14 +9,14 @@ namespace IteratorsAndComparators
     {
         public int Compare(Book x, Book y)
         {
-            int result = x.Title.CompareTo(y.Title);
 
-            if (result == 0)
+            if (x.Title != y.Title)
             {
-                result = y.Year.CompareTo(x.Year);
+                return x.Title.CompareTo(y.Title);
             }
 
-            return result;
+            return y.Year.CompareTo(x.Year);
+
         }
     }
 }

@@ -21,19 +21,18 @@ namespace IteratorsAndComparators
 
         public int CompareTo(Book other)
         {
-            int result = this.Year.CompareTo(other.Year);
 
-            if (result == 0)
+            if (Year != other.Year)
             {
-                result = this.Title.CompareTo(other.Title);
+                return Year.CompareTo(other.Year);
             }
 
-            return result;
+            return Title.CompareTo(other.Title);
         }
 
         public override string ToString()
         {
-            return $"{this.Title} - {this.Year}";
+            return $"{Title} - {Year}";
         }
     }
 }

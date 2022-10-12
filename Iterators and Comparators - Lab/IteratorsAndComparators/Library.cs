@@ -15,7 +15,7 @@ namespace IteratorsAndComparators
 
         public IEnumerator<Book> GetEnumerator()
         {
-            return new LibraryIterator(this.books);
+            return new LibraryIterator(books);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -25,13 +25,15 @@ namespace IteratorsAndComparators
 
         private class LibraryIterator : IEnumerator<Book>
         {
-            private readonly List<Book> books;
+            private List<Book> books;
             private int currentIdex;
 
-            public LibraryIterator(IEnumerable<Book> books)
+            public LibraryIterator(List<Book> books)
             {
+                
+                this.books = books;
+                this.books.Sort();
                 this.Reset();
-                this.books = new List<Book>(books);
             }
 
             public Book Current => this.books[this.currentIdex];
