@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Cooking", "01. Cooking\01. Cooking.csproj", "{63A9F497-A0B6-446A-85AA-7E84A0489489}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01. Cooking", "01. Cooking\01. Cooking.csproj", "{63A9F497-A0B6-446A-85AA-7E84A0489489}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Selling", "02. Selling\02. Selling.csproj", "{DA12E889-2CB2-4320-B36F-25AF3FD1E741}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02. Selling", "02. Selling\02. Selling.csproj", "{DA12E889-2CB2-4320-B36F-25AF3FD1E741}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakeryOpenning", "BakeryOpenning\BakeryOpenning.csproj", "{8D3D9EED-8DEE-4ECF-A66D-20680F5541FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DA12E889-2CB2-4320-B36F-25AF3FD1E741}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA12E889-2CB2-4320-B36F-25AF3FD1E741}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA12E889-2CB2-4320-B36F-25AF3FD1E741}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D3D9EED-8DEE-4ECF-A66D-20680F5541FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D3D9EED-8DEE-4ECF-A66D-20680F5541FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D3D9EED-8DEE-4ECF-A66D-20680F5541FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D3D9EED-8DEE-4ECF-A66D-20680F5541FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
