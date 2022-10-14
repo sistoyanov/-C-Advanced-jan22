@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. The Fight for Gondor", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheRace", "TheRace\TheRace.csproj", "{D3BF86CA-F025-4BC3-8944-6A7FC553BF1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Warships", "02. Warships\02. Warships.csproj", "{B16E6781-2180-4E62-AD85-5C948FF3AF1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D3BF86CA-F025-4BC3-8944-6A7FC553BF1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3BF86CA-F025-4BC3-8944-6A7FC553BF1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3BF86CA-F025-4BC3-8944-6A7FC553BF1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B16E6781-2180-4E62-AD85-5C948FF3AF1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B16E6781-2180-4E62-AD85-5C948FF3AF1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B16E6781-2180-4E62-AD85-5C948FF3AF1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B16E6781-2180-4E62-AD85-5C948FF3AF1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
