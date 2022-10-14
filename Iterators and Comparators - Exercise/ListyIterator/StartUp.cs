@@ -37,6 +37,18 @@ namespace ListyIterator
                 {
                     Console.WriteLine(collection.HasNext());
                 }
+                else if (commad == "PrintAll")
+                {
+                    try
+                    {
+                        collection.PrintAll();
+                    }
+                    catch (Exception exception)
+                    {
+
+                        Console.WriteLine(exception.Message);
+                    }
+                }
             }
         }
     }
