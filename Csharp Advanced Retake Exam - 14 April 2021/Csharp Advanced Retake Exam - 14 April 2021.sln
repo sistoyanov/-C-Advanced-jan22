@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CocktailParty", "03. Cocktail Party\CocktailParty.csproj", "{83B0F9A5-E734-4ADD-AAB8-F25170D9A76F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83B0F9A5-E734-4ADD-AAB8-F25170D9A76F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83B0F9A5-E734-4ADD-AAB8-F25170D9A76F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83B0F9A5-E734-4ADD-AAB8-F25170D9A76F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83B0F9A5-E734-4ADD-AAB8-F25170D9A76F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCBB6778-C0DF-42AF-B6BC-AB8B86564AEA}
+	EndGlobalSection
+EndGlobal
