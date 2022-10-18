@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket", "StockMarket\StockMarket.csproj", "{D3EDC979-AE3B-4A8B-93A6-A8022F111EA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFinder", "FoodFinder\FoodFinder.csproj", "{EAF9D871-EFB1-4433-9F56-FE3129AA09BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D3EDC979-AE3B-4A8B-93A6-A8022F111EA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3EDC979-AE3B-4A8B-93A6-A8022F111EA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3EDC979-AE3B-4A8B-93A6-A8022F111EA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAF9D871-EFB1-4433-9F56-FE3129AA09BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAF9D871-EFB1-4433-9F56-FE3129AA09BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAF9D871-EFB1-4433-9F56-FE3129AA09BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAF9D871-EFB1-4433-9F56-FE3129AA09BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
