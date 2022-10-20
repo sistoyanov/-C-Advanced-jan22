@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BeaveratWork
+namespace BeaverAtWork
 {
     internal class Program
     {
@@ -30,11 +30,9 @@ namespace BeaveratWork
                 }
             }
 
-            //Console.WriteLine();
-            //Print(matrix, size);
-
             string input = string.Empty;
             int branchCount = BranchCount(matrix, size);
+
             while ((input = Console.ReadLine()) != "end" && branchCount > 0)
             {
 
@@ -154,8 +152,6 @@ namespace BeaveratWork
                     }
                 }
 
-                //Console.WriteLine();
-                //Print(matrix, size);
             }
 
             if (branchCount <= 0)
