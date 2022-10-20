@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FishingNet", "FishingNet\Fi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BakeryShop", "BakeryShop\BakeryShop.csproj", "{8C82D5CD-23C7-4597-8123-CFB27A15C56C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeaveratWork", "BeaveratWork\BeaveratWork.csproj", "{1533B6E4-E146-4533-ACB3-B20F90F9FB9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeaverAtWork", "BeaveratWork\BeaverAtWork.csproj", "{1533B6E4-E146-4533-ACB3-B20F90F9FB9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
