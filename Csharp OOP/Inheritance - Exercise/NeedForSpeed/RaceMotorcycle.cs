@@ -6,10 +6,12 @@ namespace NeedForSpeed
 {
     public class RaceMotorcycle : Motorcycle
     {
-        private double defaultFuelConsumption = 8;
+        private const double RACE_MOTORCYCLE_FUEL_CONSUMPRION = 8;
         public RaceMotorcycle(int horsePower, double fuel) : base(horsePower, fuel)
         {
-            FuelConsumption = defaultFuelConsumption;
+          
         }
+
+        public override double FuelConsumption => RACE_MOTORCYCLE_FUEL_CONSUMPRION;
     }
 }
