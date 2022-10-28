@@ -11,18 +11,19 @@ namespace Person
         }
 
 
-        //public override int Age 
-        //{
-        //    get => base.Age;
-        //    set
-        //    {
-        //        if (value <= 15)
-        //        {
-        //            base.Age = value;
-        //        }
-        //    }
-            
-        
-        //}
+        public override int Age
+        {
+            get { return base.Age; }
+            set
+            {
+                if (value <= 15 && value > 0)
+                {
+                    base.Age = value;
+
+                }
+            }
+
+
+        }
     }
 }
