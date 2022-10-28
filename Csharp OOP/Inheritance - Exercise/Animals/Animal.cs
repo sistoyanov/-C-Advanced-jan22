@@ -22,7 +22,7 @@ namespace Animals
 			get { return name; }
 			set 
 			{
-				if (!string.IsNullOrEmpty(value))
+				if (!string.IsNullOrWhiteSpace(value))
 				{
                     name = value;
                 }
@@ -39,7 +39,7 @@ namespace Animals
 			get { return age; }
 			set 
 			{
-				if (value >= 0)
+				if (value > 0)
 				{
                     age = value;
                 }
@@ -55,7 +55,7 @@ namespace Animals
 			get { return gender; }
 			set 
 			{
-				if (!string.IsNullOrEmpty(value))
+				if (!string.IsNullOrWhiteSpace(value))
 				{
                     gender = value;
                 }
