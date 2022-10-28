@@ -26,18 +26,14 @@ namespace PersonsInfo
 
         public void IncreaseSalary(decimal percentage)
         {
-            decimal bonus = 0;
 
-            if (this.Age > 30)
+            if (this.Age < 30)
             {
-                bonus = (this.Salary * percentage) / 100;
-                this.Salary += bonus;
+                percentage /= 2;
+                
             }
-            else
-            {
-                bonus = (this.Salary * percentage) / 200;
-                this.Salary += bonus;
-            }
+
+            this.Salary += (this.Salary * percentage) / 100;
         }
 
     }
