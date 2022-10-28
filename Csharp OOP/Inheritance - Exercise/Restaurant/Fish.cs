@@ -6,12 +6,10 @@ namespace Restaurant
 {
     public class Fish : MainDish
     {
-        private double grams;
-        public Fish(string name, decimal price) : base(name, price, 0)
+        private const double FISH_GRAMS = 22;
+        public Fish(string name, decimal price) : base(name, price, FISH_GRAMS)
         {
-            this.grams = 22;
-        }
 
-        public override double Grams { get => grams; }
+        }
     }
 }
