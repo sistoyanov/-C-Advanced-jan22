@@ -19,61 +19,61 @@ namespace ClassBoxData
 
         public double Length
         {
-			get { return length; }
-			set 
+			get { return this.length; }
+			private set 
 			{
 				if (value <= 0)
 				{
-					throw new ArgumentException("Length cannot be zero or negative.");
+					throw new ArgumentException($"{nameof(this.Length)} cannot be zero or negative.");
 				}
 
-				length = value; 
+				this.length = value; 
 			}
 		}
 
 		public double Width
         {	
-			get { return width; }
-			set 
+			get { return this.width; }
+			private set 
 			{
                 if (value <= 0)
                 {
-                    throw new ArgumentException("Width cannot be zero or negative.");
+                    throw new ArgumentException($"{nameof(this.Width)} cannot be zero or negative.");
                 }
 
-                width = value; 
+                this.width = value; 
 			}
 		}
 
 		public double Height
         {
-			get { return height; }
-			set 
+			get { return this.height; }
+			private set 
 			{
                 if (value <= 0)
                 {
-                    throw new ArgumentException("Height cannot be zero or negative.");
+                    throw new ArgumentException($"{nameof(this.Height)} cannot be zero or negative.");
                 }
 
-                height = value; 
+                this.height = value; 
 			}
 		}
 
 		public double SurfaceArea()
 		{
-			double surfaceArea = (2 * length * width) + (2 * length * height) + (2 * width * height);
+			double surfaceArea = (2 * this.length * this.width) + (2 * this.length * this.height) + (2 * this.width * this.height);
 			return surfaceArea;
 		}
 
 		public double LateralSurfaceArea()
 		{
-			double lateralSurfaceArea = (2 * length * height) + (2 * width * height);
+			double lateralSurfaceArea = (2 * this.length * this.height) + (2 * this.width * this.height);
 			return lateralSurfaceArea;
 		}
 
 		public double Volume()
 		{
-			double volume = length * width * height;
+			double volume =	this.length * this.width * this.height;
 			return volume;
 		}
     }

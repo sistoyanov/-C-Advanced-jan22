@@ -45,8 +45,6 @@ namespace ShoppingSpree
 			}
 		}
 
-        
-
         public void BuyProduct(Product product)
         {
             if (product.Cost <= money)
