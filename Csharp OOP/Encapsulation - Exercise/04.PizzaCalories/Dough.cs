@@ -8,110 +8,80 @@ namespace PizzaCalories
 {
     public class Dough
     {
-		private string flourType;
+
+        private const double BaseCaloriesPerGram = 2;
+        private const double MinGrams = 1;
+        private const double MaxGrams = 200;
+
+        private readonly Dictionary<string, double> DefaultFlourTypes = new Dictionary<string, double>
+        {
+            {"white", 1.5},
+            {"wholegrain", 1.0},
+        };
+
+        private readonly Dictionary<string, double> DefaultBakingTechnique = new Dictionary<string, double>
+        {
+            {"crispy", 0.9},
+            {"chewy", 1.1},
+            {"homemade", 1.0},
+        };
+
+        private string flourType;
         private string bakingTechnique;
-        private double doughWeight;
+        private double grams;
 
-		private const double DOUGH_CALORIES_PER_GRAM = 2;
-
-		private const double WHITE_FLOUR = 1.5;
-		private const double WHOLEGRAIN_FLOUR = 1.0;
-
-		private const double CRISPY_DOUGH = 0.9;
-		private const double CHEWY_DOUGH = 1.1;
-		private const double HOME_MADE_DOUGH = 1.0;
-
-
-        public Dough(string flourType, string bakingTechnique, double doughWeight)
-		{
-			this.FlourType = flourType;
-			this.BakingTechnique = bakingTechnique;
-			this.DoughWeight = doughWeight;
+        public Dough(string flourType, string bakingTechnique, double grams)
+        {
+            this.FlourType = flourType;
+            this.BakingTechnique = bakingTechnique;
+            this.Grams = grams;
         }
 
         public string FlourType
         {
-			get => this.flourType;
-			private set 
-			{
-				if (value == "white" || value == "wholegrain")
-				{
-                    this.flourType = value;
-                }
-				else
-				{
-                    throw new ArgumentException("Invalid type of dough.");
-                }
-
-			}
-		}
-
-		public string BakingTechnique
-        {
-			get => this.bakingTechnique;
-			private set 
-			{
-                if (value == "crispy" || value == "chewy" || value == "homemade")
+            get { return flourType; }
+            private set
+            {
+                if (!this.DefaultFlourTypes.ContainsKey(value))
                 {
-                    this.bakingTechnique = value;
-                }
-				else
-				{
                     throw new ArgumentException("Invalid type of dough.");
                 }
 
-			}
-		}
-
-		public double DoughWeight
-        {
-			get =>this.doughWeight; 
-			private set 
-			{
-				if (value > 0 && value <= 200)
-				{
-                    this.doughWeight = value;
-                }
-				else
-				{
-                    throw new ArgumentException("Dough weight should be in the range [1..200].");
-                }
-
+                this.flourType = value;
             }
-				
-		}
+        }
 
-		public double DoughCaloriesPerGram => DoughCalculateCaloriesPerGram();
+        public string BakingTechnique
+        {
+            get { return this.bakingTechnique; }
+            private set
+            {
+                if (!this.DefaultBakingTechnique.ContainsKey(value))
+                {
+                    throw new ArgumentException("Invalid type of dough.");
+                }
 
-		private double DoughCalculateCaloriesPerGram()
-		{
-			double currentFlourTypeMod = 0;
-			double currentDoughTypeMod = 0;
+                this.bakingTechnique = value;
+            }
+        }
 
-			if (this.flourType == "white")
-			{
-				currentFlourTypeMod = WHITE_FLOUR;
-			}
-			else if (this.flourType == "wholegrain")
-			{
-				currentFlourTypeMod = WHOLEGRAIN_FLOUR;
-			}
+        public double Grams
+        {
+            get { return this.grams; }
+            private set
+            {
+                if (value < MinGrams || value > MaxGrams)
+                {
+                    throw new ArgumentException($"Dough weight should be in the range [{MinGrams}..{MaxGrams}].");
+                }
 
-			if (this.bakingTechnique == "crispy")
-			{
-				currentDoughTypeMod = CRISPY_DOUGH;
-			}
-			else if (this.bakingTechnique == "chewy")
-			{
-				currentDoughTypeMod = CHEWY_DOUGH;
-			}
-			else if (this.bakingTechnique == "homemade")
-			{
-				currentDoughTypeMod = HOME_MADE_DOUGH;
-			}
+                this.grams = value;
+            }
+        }
 
-			return (DOUGH_CALORIES_PER_GRAM * this.doughWeight) * currentFlourTypeMod * currentDoughTypeMod;
-		}
+        public double CaloriesPerGram => BaseCaloriesPerGram * this.DefaultFlourTypes[this.FlourType] * this.DefaultBakingTechnique[this.BakingTechnique];
+
+        public double TotalCalories => this.CaloriesPerGram * this.Grams;
 
     }
 }

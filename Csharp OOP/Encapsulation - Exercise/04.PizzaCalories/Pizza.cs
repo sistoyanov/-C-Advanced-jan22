@@ -53,7 +53,7 @@ namespace PizzaCalories
 				totalCalories += topping.TotalCalories;
 			}
 
-			totalCalories += this.Dough.DoughCaloriesPerGram;
+			totalCalories += this.Dough.TotalCalories;
 
 			return totalCalories;
 		}

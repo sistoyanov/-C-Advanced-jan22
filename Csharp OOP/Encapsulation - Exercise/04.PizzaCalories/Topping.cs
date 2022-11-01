@@ -34,11 +34,11 @@ namespace PizzaCalories
             get { return this.type; }
             set
             {
-                if (!this.DefaultTypes.ContainsKey(value)) //.ToLower())
+                if (!this.DefaultTypes.ContainsKey(value))
                 {
                     throw new ArgumentException($"Cannot place {ToTitleCase(value)} on top of your pizza.");
                 }
-                this.type = value;//.ToLower();
+                this.type = value;
             }
         }
 
