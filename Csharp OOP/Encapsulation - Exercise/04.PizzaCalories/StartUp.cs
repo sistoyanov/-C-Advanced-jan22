@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Linq;
 
 namespace PizzaCalories
 {
@@ -7,45 +9,54 @@ namespace PizzaCalories
         static void Main(string[] args)
         {
             string input = string.Empty;
+            Dough dough = null;
+            Topping topping = null;
+            Pizza pizza = null;
 
             while ((input = Console.ReadLine()) != "END")
             {
-                string[] inputDetails = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                string[] inputDetails = input.Split(" ").Select(c => c.ToLower()).ToArray();
 
-                if (inputDetails[0] == "Dough")
+                try
                 {
-                    string flourType = inputDetails[1];
-                    string bakingTechnique = inputDetails[2];
-                    double doughWeight = double.Parse(inputDetails[3]);
 
-                    try
+                    if (inputDetails[0] == "pizza")
                     {
-                        Dough dough = new Dough(flourType, bakingTechnique, doughWeight);
-                        Console.WriteLine($"{dough.DoughCaloriesPerGram:f2}");
+                        string pizzaName = inputDetails[1];
+                        pizza = new Pizza(pizzaName);
                     }
-                    catch (ArgumentException ae)
+                    else if (inputDetails[0] == "dough")
                     {
+                        string flourType = inputDetails[1];
+                        string bakingTechnique = inputDetails[2];
+                        double doughWeight = double.Parse(inputDetails[3]);
 
-                        Console.WriteLine(ae.Message);
+                        dough = new Dough(flourType, bakingTechnique, doughWeight);
+                        pizza.Dough = dough;
                     }
+                    else if (inputDetails[0] == "topping")
+                    {
+                        string toppingType = inputDetails[1];
+                        double toppingWeight = double.Parse(inputDetails[2]);
+
+                        topping = new Topping(toppingType, toppingWeight);
+                        pizza.AddTopping(topping);
+                    }
+
+       
+
                 }
-                else if (inputDetails[0] == "Topping")
+                catch (ArgumentException ae)
                 {
-                    string toppingType = inputDetails[1];
-                    double toppingWeight = double.Parse(inputDetails[2]);
 
-                    try
-                    {
-                        Topping topping = new Topping(toppingType, toppingWeight);
-                        Console.WriteLine($"{topping.ToppingCaloriesPerGram:f2}");
-                    }
-                    catch (ArgumentException ae)
-                    {
-
-                        Console.WriteLine(ae.Message);
-                    }
+                    Console.WriteLine(ae.Message);
+                    return;
                 }
+
             }
+
+            Console.WriteLine(pizza);
         }
+
     }
 }

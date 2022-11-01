@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
@@ -7,78 +9,61 @@ namespace PizzaCalories
 {
     public class Topping
     {
-		private string type;
+
+        private const double BaseCaloriesPerGram = 2;
+        private const double MinGrams = 1;
+        private const double MaxGrams = 50;
+        private string type;
         private double weight;
 
-        private const double TOPPING_CALORIES_PER_GRAM = 2;
-		private const double MEAT_CALORIES = 1.2;
-		private const double VEGGIES_CALORIES = 0.8;
-		private const double CHEESE_CALORIES = 1.1;
-		private const double SAUSE_CALORIES = 0.9;
-
-		public Topping(string type, double weight)
-		{
-			this.Type = type;
-			this.Weight = weight;
-		}
-        public string Type
-		{
-			get { return type; }
-			set 
-            { 
-                if (value == "Meat" || value == "Veggies" || value == "Cheese" || value == "Sauce")
-                {
-                    type = value;
-                }
-                else
-                {
-                    throw new ArgumentException($"Cannot place {value} on top of your pizza.");
-                }
-            }
-		}
-
-
-		public double Weight
-		{
-			get { return weight; }
-			set 
-            {
-                if (value > 1 && value <= 50)
-                {
-                    weight = value;
-                }
-                else
-                {
-                    throw new ArgumentException($"{this.type} weight should be in the range[1..50].");
-                }
-                
-            }
-		}
-
-        public double ToppingCaloriesPerGram => ToppingDoughCalculateCaloriesPerGram();
-
-        private double ToppingDoughCalculateCaloriesPerGram()
+        private readonly Dictionary<string, double> DefaultTypes = new Dictionary<string, double>
         {
-            double currentMeatMod = 0;
+            {"meat", 1.2},
+            {"veggies", 0.8},
+            {"cheese", 1.1},
+            {"sauce", 0.9},
+        };
 
-            if (type == "Meat")
+        public Topping(string type, double weight)
+        {
+            this.Type = type;
+            this.Weight = weight;
+        }
+        public string Type
+        {
+            get { return this.type; }
+            set
             {
-                currentMeatMod = MEAT_CALORIES;
+                if (!this.DefaultTypes.ContainsKey(value)) //.ToLower())
+                {
+                    throw new ArgumentException($"Cannot place {ToTitleCase(value)} on top of your pizza.");
+                }
+                this.type = value;//.ToLower();
             }
-            else if (type == "Veggies")
-            {
-                currentMeatMod = VEGGIES_CALORIES;
-            }
-            else if (type == "Cheese")
-            {
-                currentMeatMod = CHEESE_CALORIES;
-            }
-            else if (type == "Sauce")
-            {
-                currentMeatMod = SAUSE_CALORIES;
-            }
+        }
 
-            return (TOPPING_CALORIES_PER_GRAM * weight) * currentMeatMod;
+        public double Weight
+        {
+            get { return this.weight; }
+            set
+            {
+                if (value < MinGrams || value > MaxGrams)
+                {
+
+                    throw new ArgumentException($"{ToTitleCase(this.Type)} weight should be in the range [{MinGrams}..{MaxGrams}].");
+                }
+
+                this.weight = value;
+            }
+        }
+
+        public double CaloriesPerGram => BaseCaloriesPerGram * this.DefaultTypes[this.Type];
+
+        public double TotalCalories => this.CaloriesPerGram * this.Weight;
+
+        private static string ToTitleCase(string input)
+        {
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(input);
         }
     }
 }

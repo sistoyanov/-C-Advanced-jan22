@@ -31,49 +31,49 @@ namespace PizzaCalories
 
         public string FlourType
         {
-			get { return flourType; }
+			get => this.flourType;
 			private set 
 			{
-				if (value == "White" || value == "Wholegrain")
+				if (value == "white" || value == "wholegrain")
 				{
-                    flourType = value;
+                    this.flourType = value;
                 }
 				else
 				{
-					throw new ArgumentException("Invalid type of dough.");
-				}
-				
+                    throw new ArgumentException("Invalid type of dough.");
+                }
+
 			}
 		}
 
 		public string BakingTechnique
         {
-			get { return bakingTechnique; }
+			get => this.bakingTechnique;
 			private set 
 			{
-                if (value == "Crispy" || value == "Chewy" || value == "Homemade")
+                if (value == "crispy" || value == "chewy" || value == "homemade")
                 {
-                    bakingTechnique = value;
+                    this.bakingTechnique = value;
                 }
-                else
-                {
+				else
+				{
                     throw new ArgumentException("Invalid type of dough.");
                 }
-				
+
 			}
 		}
 
 		public double DoughWeight
         {
-			get { return doughWeight; }
+			get =>this.doughWeight; 
 			private set 
 			{
 				if (value > 0 && value <= 200)
 				{
-                    doughWeight = value;
+                    this.doughWeight = value;
                 }
-                else
-                {
+				else
+				{
                     throw new ArgumentException("Dough weight should be in the range [1..200].");
                 }
 
@@ -88,29 +88,29 @@ namespace PizzaCalories
 			double currentFlourTypeMod = 0;
 			double currentDoughTypeMod = 0;
 
-			if (flourType == "White")
+			if (this.flourType == "white")
 			{
 				currentFlourTypeMod = WHITE_FLOUR;
 			}
-			else if (flourType == "Wholegrain")
+			else if (this.flourType == "wholegrain")
 			{
 				currentFlourTypeMod = WHOLEGRAIN_FLOUR;
 			}
 
-			if (bakingTechnique == "Crispy")
+			if (this.bakingTechnique == "crispy")
 			{
 				currentDoughTypeMod = CRISPY_DOUGH;
 			}
-			else if (bakingTechnique == "Chewy")
+			else if (this.bakingTechnique == "chewy")
 			{
 				currentDoughTypeMod = CHEWY_DOUGH;
 			}
-			else if (bakingTechnique == "Homemade")
+			else if (this.bakingTechnique == "homemade")
 			{
 				currentDoughTypeMod = HOME_MADE_DOUGH;
 			}
 
-			return (DOUGH_CALORIES_PER_GRAM * doughWeight) * currentFlourTypeMod * currentDoughTypeMod;
+			return (DOUGH_CALORIES_PER_GRAM * this.doughWeight) * currentFlourTypeMod * currentDoughTypeMod;
 		}
 
     }

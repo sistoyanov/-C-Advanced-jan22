@@ -19,7 +19,7 @@ namespace ClassBoxData
 
         public double Length
         {
-			get { return this.length; }
+			get => this.length;
 			private set 
 			{
 				if (value <= 0)
@@ -33,7 +33,7 @@ namespace ClassBoxData
 
 		public double Width
         {	
-			get { return this.width; }
+			get => this.width; 
 			private set 
 			{
                 if (value <= 0)
@@ -47,7 +47,7 @@ namespace ClassBoxData
 
 		public double Height
         {
-			get { return this.height; }
+			get => this.height;
 			private set 
 			{
                 if (value <= 0)
@@ -59,22 +59,11 @@ namespace ClassBoxData
 			}
 		}
 
-		public double SurfaceArea()
-		{
-			double surfaceArea = (2 * this.length * this.width) + (2 * this.length * this.height) + (2 * this.width * this.height);
-			return surfaceArea;
-		}
+		public double SurfaceArea() => (2 * this.Length* this.Width) + (2 * this.Length* this.Height) + (2 * this.Width* this.Height);
 
-		public double LateralSurfaceArea()
-		{
-			double lateralSurfaceArea = (2 * this.length * this.height) + (2 * this.width * this.height);
-			return lateralSurfaceArea;
-		}
+		public double LateralSurfaceArea() => (2 * this.Length* this.Height) + (2 * this.Width* this.Height);
 
-		public double Volume()
-		{
-			double volume =	this.length * this.width * this.height;
-			return volume;
-		}
+		public double Volume() => this.Length * this.Width * this.Height;
+		
     }
 }
