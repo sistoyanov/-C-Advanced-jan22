@@ -32,7 +32,7 @@ namespace PizzaCalories
         public string Type
         {
             get { return this.type; }
-            set
+            private set
             {
                 if (!this.DefaultTypes.ContainsKey(value))
                 {
@@ -45,7 +45,7 @@ namespace PizzaCalories
         public double Weight
         {
             get { return this.weight; }
-            set
+            private set
             {
                 if (value < MinGrams || value > MaxGrams)
                 {
