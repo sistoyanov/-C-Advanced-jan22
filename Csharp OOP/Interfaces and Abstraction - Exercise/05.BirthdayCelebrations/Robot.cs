@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BorderControl
+namespace BirthdayCelebration
 {
     public class Robot : IControlable
     {
-        public Robot(string model)
+        public Robot(string model, string id)
         {
             this.Model = model;
+            this.Id = id;
         }
 
         public string Model { get; private set; }
