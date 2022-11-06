@@ -1,8 +1,7 @@
-﻿using System;
-using Vehicles.Exeptions;
-
-namespace Vehicles.Models
+﻿namespace Vehicles.Models
 {
+    using System;
+    using Vehicles.Exeptions;
     public class Car : Vehicle
     {
         private const double AirConditionerConsuption = 0.9;

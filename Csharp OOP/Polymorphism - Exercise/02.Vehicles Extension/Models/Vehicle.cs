@@ -1,15 +1,18 @@
 ﻿namespace Vehicles.Models
 {
+    using System;
     public abstract class Vehicle
     {
-        public Vehicle(double fuelQuantity, double fuelConsumption)
+        public Vehicle(double fuelConsumption, double tankCapacity)
         {
-            this.FuelQuantity = fuelQuantity;
+
             this.FuelConsumption = fuelConsumption;
+            this.TankCapacity = tankCapacity;
         }
 
-        public abstract double FuelQuantity { get; set; }
         public abstract double FuelConsumption { get; set; }
+
+        public abstract double TankCapacity { get; set; }
 
         public abstract string Drive(double distance);
 
