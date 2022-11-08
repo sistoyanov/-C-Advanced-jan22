@@ -1,10 +1,11 @@
 ﻿namespace Vehicles
 {
-    using System;
     using IO;
     using IO.Interfaces;
-    using Vehicles.Core;
-    using Vehicles.Core.Interafaces;
+    using Core;
+    using Core.Interafaces;
+    using Factories;
+    using Factories.Interfaces;
 
     public class StartUp
     {
@@ -12,8 +13,9 @@
         {
             IReader reader = new ConsoleReader();
             IWriter writer = new ConsoleWriter();
+            IVehicleFactory vehicleFactory = new VechicleFactory();
 
-            IEngine engine = new Engine(reader, writer);
+            IEngine engine = new Engine(reader, writer, vehicleFactory);
             engine.Run();
         }
     }

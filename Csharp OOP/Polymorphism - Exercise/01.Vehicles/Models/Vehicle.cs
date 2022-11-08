@@ -1,19 +1,45 @@
 ﻿namespace Vehicles.Models
 {
-    public abstract class Vehicle
+    using System;
+    using Exeptions;
+    using Interfaces;
+
+    public abstract class Vehicle : IVehicle
     {
-        public Vehicle(double fuelQuantity, double fuelConsumption)
+        public Vehicle(double fuelQuantity, double fuelConsumption, double airConditionerConsuption)
         {
             this.FuelQuantity = fuelQuantity;
-            this.FuelConsumption = fuelConsumption;
+            this.FuelConsumption = fuelConsumption + airConditionerConsuption;
         }
 
-        public abstract double FuelQuantity { get; set; }
-        public abstract double FuelConsumption { get; set; }
+        public  double FuelQuantity { get; private set; }
 
-        public abstract string Drive(double distance);
+        public double FuelConsumption { get; private set; }
 
-        public abstract void Refuel(double fuel);
+        public string Drive(double distance)
+        {
+            double neededFuel = distance * this.FuelConsumption;
 
+            if (neededFuel <= this.FuelQuantity)
+            {
+                this.FuelQuantity -= neededFuel;
+            }
+            else
+            {
+                throw new InvalidOperationException(string.Format(ExeptionMessages.InsufficientFuelExeption, this.GetType().Name));
+            }
+
+            return $"{this.GetType().Name} travelled {distance} km";
+        }
+
+        public virtual void Refuel(double fuel)
+        {
+            this.FuelQuantity += fuel;
+        }
+
+        public override string ToString()
+        {
+            return $"{this.GetType().Name}: {this.FuelQuantity:f2}";
+        }
     }
 }
