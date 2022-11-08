@@ -7,6 +7,7 @@ namespace Vehicles.Core
     using Interafaces;
     using Vehicles.Factories.Interfaces;
     using Vehicles.IO.Interfaces;
+    using Vehicles.Models;
     using Vehicles.Models.Interfaces;
 
     public class Engine : IEngine
@@ -93,8 +94,9 @@ namespace Vehicles.Core
             }
             else if (command == "DriveEmpty")
             {
+                Bus currentBus = (Bus)vehicles.FirstOrDefault(v => v.GetType().Name == vehicaleType);
                 double distance = double.Parse(inputDetails[2]);
-                currentVehicle.FuelConsumption -= 1.4;
+                currentBus.FuelConsumption -= currentBus.BusAirconditionerConsumption;
                 DriveVehicle(currentVehicle, distance);
             }
         }

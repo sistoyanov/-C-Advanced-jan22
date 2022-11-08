@@ -8,8 +8,9 @@
         private const double BUS_AIRCONDITIONER_CONSUPTION = 1.4;
         public Bus(double fuelQuantity, double fuelConsumption, double tankCapacity) : base(fuelQuantity, fuelConsumption, tankCapacity, BUS_AIRCONDITIONER_CONSUPTION)
         {
+            this.BusAirconditionerConsumption = BUS_AIRCONDITIONER_CONSUPTION;
         }
 
-        
+        public double BusAirconditionerConsumption { get; }
     }
 }
