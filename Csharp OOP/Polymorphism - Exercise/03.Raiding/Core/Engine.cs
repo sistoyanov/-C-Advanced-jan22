@@ -52,8 +52,6 @@
 
             }
 
-
-
             int bossPower = int.Parse(this.reader.ReadLine());
             this.writer.WriteLine(PrintResult(bossPower));
         }

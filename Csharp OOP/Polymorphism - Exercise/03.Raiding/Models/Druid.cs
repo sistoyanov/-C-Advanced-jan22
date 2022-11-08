@@ -5,14 +5,12 @@ namespace Raiding.Models
     using System;
     using System.Linq;
 
-    public class Druid : BaseHero, IHero
+    public class Druid : BaseHero
     {
-        private const int POWER = 80;
-        public Druid(string name) : base(name)
+        private const int DRUID_POWER = 80;
+        public Druid(string name) : base(name, DRUID_POWER)
         {
-            this.Power = POWER;
         }
-
 
         public override string CastAbility()
         {

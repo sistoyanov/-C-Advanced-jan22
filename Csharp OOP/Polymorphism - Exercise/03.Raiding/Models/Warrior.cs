@@ -2,12 +2,11 @@
 
 namespace Raiding.Models
 {
-    public class Warrior : BaseHero, IHero
+    public class Warrior : BaseHero
     {
-        private const int POWER = 100;
-        public Warrior(string name) : base(name)
+        private const int WARRIOR_POWER = 100;
+        public Warrior(string name) : base(name, WARRIOR_POWER)
         {
-            this.Power = POWER;
         }
 
         public override string CastAbility()

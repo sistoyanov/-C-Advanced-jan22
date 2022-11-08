@@ -5,6 +5,5 @@
         string Name { get; }
         int Power { get; }
 
-        public string CastAbility();
     }
 }
