@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.SumOfIntegers", "04.SumO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.PlayCatch", "05.PlayCatch\05.PlayCatch.csproj", "{AF4F5F5E-10A5-4261-9E21-2345923B23D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.MoneyTransactions", "06.MoneyTransactions\06.MoneyTransactions.csproj", "{EB554ACD-8225-43F0-9C60-6D1A95F80882}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{AF4F5F5E-10A5-4261-9E21-2345923B23D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF4F5F5E-10A5-4261-9E21-2345923B23D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF4F5F5E-10A5-4261-9E21-2345923B23D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB554ACD-8225-43F0-9C60-6D1A95F80882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB554ACD-8225-43F0-9C60-6D1A95F80882}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB554ACD-8225-43F0-9C60-6D1A95F80882}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB554ACD-8225-43F0-9C60-6D1A95F80882}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
