@@ -22,12 +22,12 @@ namespace OnlineShop.Models.Products
 
         public int Id
         {
-            get { return id; }
+            get { return this.id; }
             private set
             {
                 if (value <= 0)
                 {
-                    throw new AggregateException(string.Format(ExceptionMessages.InvalidProductId));
+                    throw new ArgumentException(string.Format(ExceptionMessages.InvalidProductId));
                 }
 
                 this.id = value;
@@ -36,12 +36,12 @@ namespace OnlineShop.Models.Products
 
         public string Manufacturer
         {
-            get { return manufacturer; }
+            get { return this.manufacturer; }
             private set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new AggregateException(string.Format(ExceptionMessages.InvalidManufacturer));
+                    throw new ArgumentException(string.Format(ExceptionMessages.InvalidManufacturer));
                 }
 
                 this.manufacturer = value;
@@ -51,12 +51,12 @@ namespace OnlineShop.Models.Products
 
         public string Model
         {
-            get { return model; }
+            get { return this.model; }
             private set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new AggregateException(string.Format(ExceptionMessages.InvalidModel));
+                    throw new ArgumentException(string.Format(ExceptionMessages.InvalidModel));
                 }
 
                 this.model = value;
@@ -65,12 +65,12 @@ namespace OnlineShop.Models.Products
 
         public virtual decimal Price
         {
-            get { return price; }
+            get { return this.price; }
             private set
             {
                 if (value <= 0)
                 {
-                    throw new AggregateException(string.Format(ExceptionMessages.InvalidPrice));
+                    throw new ArgumentException(string.Format(ExceptionMessages.InvalidPrice));
                 }
 
                 this.price = value;
@@ -79,7 +79,7 @@ namespace OnlineShop.Models.Products
 
         public virtual double OverallPerformance
         {
-            get { return overallPerformance; }
+            get { return this.overallPerformance; }
             private set 
             {
                 if (value <= 0)
@@ -93,7 +93,7 @@ namespace OnlineShop.Models.Products
 
         public override string ToString()
         {
-            return $"Overall Performance: {this.OverallPerformance}. Price: {this.Price} - {nameof(Product)}: {this.Manufacturer} {this.Model} (Id: {this.Id})";
+            return $"Overall Performance: {this.OverallPerformance:f2}. Price: {this.Price:f2} - {this.GetType().Name}: {this.Manufacturer} {this.Model} (Id: {this.Id})";
         }
     }
 }

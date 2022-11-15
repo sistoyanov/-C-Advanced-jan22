@@ -10,30 +10,30 @@
 
     public abstract class Computer : Product, IComputer
     {
-        private HashSet<IComponent> components;
-        private HashSet<IPeripheral> peripherals;
+        private ICollection<IComponent> components;
+        private ICollection<IPeripheral> peripherals;
 
         protected Computer(int id, string manufacturer, string model, decimal price, double overallPerformance) : base(id, manufacturer, model, price, overallPerformance)
         {
-            components = new HashSet<IComponent>();
-            peripherals = new HashSet<IPeripheral>();
+            this.components = new HashSet<IComponent>();
+            this.peripherals = new HashSet<IPeripheral>();
         }
 
-        public IReadOnlyCollection<IComponent> Components { get; private set; }
+        public IReadOnlyCollection<IComponent> Components => components as IReadOnlyCollection<IComponent>;
 
-        public IReadOnlyCollection<IPeripheral> Peripherals { get; private set; }
+        public IReadOnlyCollection<IPeripheral> Peripherals => peripherals as IReadOnlyCollection<IPeripheral>;
 
         public override double OverallPerformance
         {
             get 
             {
-                if (components.Count == 0)
+                if (this.Components.Count == 0)
                 {
                     return base.OverallPerformance;
                 }
                 else
                 {
-                    return this.Components.Sum(c => c.OverallPerformance) / this.Components.Count;
+                    return base.OverallPerformance + (this.Components.Sum(c => c.OverallPerformance) / this.Components.Count);
                 }
                 
             }
@@ -43,14 +43,14 @@
         {
             get 
             {
-                return this.Price + this.Components.Sum(c => c.Price) + this.Peripherals.Sum(p => p.Price);
+                return base.Price + this.components.Sum(c => c.Price) + this.peripherals.Sum(p => p.Price);
  
             }
         }
 
         public void AddComponent(IComponent component)
         {
-            if (this.Components.Any(c => c.GetType().Name == component.GetType().Name))
+            if (this.components.Any(c => c.GetType().Name == component.GetType().Name))
             {
                 throw new ArgumentException(string.Format(ExceptionMessages.ExistingComponent, component.GetType().Name, nameof(Computer), base.Id));
             }
@@ -60,7 +60,7 @@
 
         public void AddPeripheral(IPeripheral peripheral)
         {
-            if (this.Peripherals.Any(p => p.GetType().Name == peripheral.GetType().Name))
+            if (this.peripherals.Any(p => p.GetType().Name == peripheral.GetType().Name))
             {
                 throw new ArgumentException(string.Format(ExceptionMessages.ExistingPeripheral, peripheral.GetType().Name, nameof(Computer), base.Id));
             }
@@ -70,38 +70,44 @@
 
         public IComponent RemoveComponent(string componentType)
         {
-            if (this.Components.Any(c => c.GetType().Name == componentType.GetType().Name) || this.Components.Count == 0)
+            if (!this.components.Any(c => c.GetType().Name == componentType) || this.Components.Count == 0)
             {
-                throw new ArgumentException(string.Format(ExceptionMessages.NotExistingComponent, componentType.GetType().Name, nameof(Computer), base.Id));
+                throw new ArgumentException(string.Format(ExceptionMessages.NotExistingComponent, componentType, base.GetType().Name, base.Id));
             }
 
-            return this.Components.FirstOrDefault(c => c.GetType().Name == componentType.GetType().Name);
+            IComponent componentToRemove = components.First(c => c.GetType().Name == componentType);
+            this.components.Remove(componentToRemove);
+     
+            return componentToRemove;
         }
 
         public IPeripheral RemovePeripheral(string peripheralType)
         {
-            if (this.Peripherals.Any(p => p.GetType().Name == peripheralType.GetType().Name) || this.Peripherals.Count == 0)
+            if (!this.peripherals.Any(p => p.GetType().Name == peripheralType) || this.Peripherals.Count == 0)
             {
-                throw new ArgumentException(string.Format(ExceptionMessages.ExistingPeripheral, peripheralType.GetType().Name, nameof(Computer), base.Id));
+                throw new ArgumentException(string.Format(ExceptionMessages.NotExistingPeripheral, peripheralType, base.GetType().Name, base.Id));
             }
 
-            return this.Peripherals.FirstOrDefault(p => p.GetType().Name == peripheralType.GetType().Name);
+            IPeripheral peripheralToRemove = peripherals.First(p => p.GetType().Name == peripheralType);
+            this.peripherals.Remove(peripheralToRemove);
+
+            return peripheralToRemove;
         }
 
         public override string ToString()
         {
             StringBuilder output = new StringBuilder();
             output.AppendLine(base.ToString())
-                  .AppendLine($" Components ({this.Components.Count}):");
+                  .AppendLine($" Components ({this.components.Count}):");
 
-            foreach (IComponent component in this.Components)
+            foreach (IComponent component in this.components)
             {
                 output.AppendLine($"  {component}");
             }
 
-            output.AppendLine($" Peripherals ({this.Peripherals.Count}); Average Overall Performance ({this.Peripherals.Sum(p => p.OverallPerformance) / this.Peripherals.Count}):");
+            output.AppendLine($" Peripherals ({this.peripherals.Count}); Average Overall Performance ({(this.peripherals.Count > 0 ? (this.peripherals.Sum(p => p.OverallPerformance) / this.peripherals.Count) : 0):f2}):");
 
-            foreach (IPeripheral peripheral in this.Peripherals)
+            foreach (IPeripheral peripheral in this.peripherals)
             {
                 output.Append($"  {peripheral}");
             }
@@ -109,9 +115,5 @@
             return output.ToString().TrimEnd();
         }
 
-        Components.IComponent IComputer.RemoveComponent(string componentType)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
