@@ -52,7 +52,7 @@
         {
             if (this.components.Any(c => c.GetType().Name == component.GetType().Name))
             {
-                throw new ArgumentException(string.Format(ExceptionMessages.ExistingComponent, component.GetType().Name, nameof(Computer), base.Id));
+                throw new ArgumentException(string.Format(ExceptionMessages.ExistingComponent, component.GetType().Name, base.GetType().Name, base.Id));
             }
 
             this.components.Add(component);
@@ -62,7 +62,7 @@
         {
             if (this.peripherals.Any(p => p.GetType().Name == peripheral.GetType().Name))
             {
-                throw new ArgumentException(string.Format(ExceptionMessages.ExistingPeripheral, peripheral.GetType().Name, nameof(Computer), base.Id));
+                throw new ArgumentException(string.Format(ExceptionMessages.ExistingPeripheral, peripheral.GetType().Name, base.GetType().Name, base.Id));
             }
 
             this.peripherals.Add(peripheral);
