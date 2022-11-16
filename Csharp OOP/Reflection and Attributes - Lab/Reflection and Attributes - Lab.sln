@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Stealer", "01.Stealer\01
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.HighQualityMistakes", "02.HighQualityMistakes\02.HighQualityMistakes.csproj", "{989F388D-E025-47EF-A645-7FD618C1DF07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.MissionPrivateImpossible", "03.MissionPrivateImpossible\03.MissionPrivateImpossible.csproj", "{8E2C2B2F-900B-48FE-A547-7AE34FF04B0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{989F388D-E025-47EF-A645-7FD618C1DF07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{989F388D-E025-47EF-A645-7FD618C1DF07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{989F388D-E025-47EF-A645-7FD618C1DF07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E2C2B2F-900B-48FE-A547-7AE34FF04B0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E2C2B2F-900B-48FE-A547-7AE34FF04B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E2C2B2F-900B-48FE-A547-7AE34FF04B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E2C2B2F-900B-48FE-A547-7AE34FF04B0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
