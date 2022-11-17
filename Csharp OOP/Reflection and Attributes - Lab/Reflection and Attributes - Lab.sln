@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.Collector", "04.Collecto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.CreateAttribute", "05.CreateAttribute\05.CreateAttribute.csproj", "{D5F0B07D-9655-4BB1-89E0-D0A303E13245}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.CodeTracker", "06.CodeTracker\06.CodeTracker.csproj", "{00961F9C-BA54-469F-86DB-C2F7907252A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D5F0B07D-9655-4BB1-89E0-D0A303E13245}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5F0B07D-9655-4BB1-89E0-D0A303E13245}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5F0B07D-9655-4BB1-89E0-D0A303E13245}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00961F9C-BA54-469F-86DB-C2F7907252A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00961F9C-BA54-469F-86DB-C2F7907252A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00961F9C-BA54-469F-86DB-C2F7907252A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00961F9C-BA54-469F-86DB-C2F7907252A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
