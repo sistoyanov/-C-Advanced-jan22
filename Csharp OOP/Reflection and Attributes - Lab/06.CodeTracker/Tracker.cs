@@ -9,7 +9,7 @@ namespace AuthorProblem
     {
         public void PrintMethodsByAuthor()
         {
-            Type type = typeof(Program);
+            Type type = typeof(StartUp);
             MethodInfo[] methods = type.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.Static);
 
             foreach (MethodInfo method in methods)
