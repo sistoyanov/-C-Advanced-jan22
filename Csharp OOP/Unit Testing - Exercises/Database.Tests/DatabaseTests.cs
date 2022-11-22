@@ -53,7 +53,6 @@ namespace Database.Tests
         {
             this.database.Remove();
             Assert.AreEqual(this.count - 1, database.Count);
-            //Assert.AreEqual(0, this.database.);
         }
 
         [Test]
