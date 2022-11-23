@@ -6,7 +6,7 @@
         private const int SportsCarMinimumHorsepower = 250;
         private const int SportsCarMaximumHorsepower = 450;
 
-        public SportsCar(string model, int horsePower, double cubicCentimeters, int minHorsePower, int maxHorsePower) : base(model, horsePower, SportsCarCubicCentimeters, SportsCarMinimumHorsepower, SportsCarMaximumHorsepower)
+        public SportsCar(string model, int horsePower) : base(model, horsePower, SportsCarCubicCentimeters, SportsCarMinimumHorsepower, SportsCarMaximumHorsepower)
         {
         }
     }
