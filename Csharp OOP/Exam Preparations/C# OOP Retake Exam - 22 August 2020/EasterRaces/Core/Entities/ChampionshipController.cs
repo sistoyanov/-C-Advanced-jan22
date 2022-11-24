@@ -88,6 +88,8 @@ namespace EasterRaces.Core.Entities
                 newCar = new SportsCar(model, horsePower);
             }
 
+            this.carRepository.Add(newCar);
+
             return string.Format(OutputMessages.CarCreated, newCar.GetType().Name, model);
         }
 
@@ -100,7 +102,7 @@ namespace EasterRaces.Core.Entities
                 throw new ArgumentException(string.Format(ExceptionMessages.DriversExists, driverName));
             }
 
-            driverRepository.Add(newDriver);
+            this.driverRepository.Add(newDriver);
 
             return string.Format(OutputMessages.DriverCreated, driverName);
         }
@@ -114,7 +116,7 @@ namespace EasterRaces.Core.Entities
                 throw new InvalidOperationException(string.Format(ExceptionMessages.RaceExists, name));
             }
 
-            raceRepository.Add(newRace);
+            this.raceRepository.Add(newRace);
 
             return string.Format(OutputMessages.RaceCreated, name);
         }

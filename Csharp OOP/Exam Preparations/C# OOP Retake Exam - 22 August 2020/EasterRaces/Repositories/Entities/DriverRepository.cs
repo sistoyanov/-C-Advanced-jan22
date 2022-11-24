@@ -4,27 +4,26 @@ namespace EasterRaces.Repositories.Entities
     using EasterRaces.Repositories.Contracts;
     using Models.Drivers.Contracts;
     using System.Collections.Generic;
+    using System.Linq;
 
     public class DriverRepository : IRepository<IDriver>
     {
-        public void Add(IDriver model)
+        private readonly HashSet<IDriver> drivers;
+
+        public DriverRepository()
         {
-            throw new System.NotImplementedException();
+            this.drivers = new HashSet<IDriver>();
         }
 
-        public IReadOnlyCollection<IDriver> GetAll()
-        {
-            throw new System.NotImplementedException();
-        }
+        public void Add(IDriver model) => this.drivers.Add(model);
 
-        public IDriver GetByName(string name)
-        {
-            throw new System.NotImplementedException();
-        }
+        public IReadOnlyCollection<IDriver> GetAll() => this.drivers; //ToAtrray // as Readonly
 
-        public bool Remove(IDriver model)
-        {
-            throw new System.NotImplementedException();
-        }
+
+        public IDriver GetByName(string name) => this.drivers.FirstOrDefault(d => d.Name == name);
+
+
+        public bool Remove(IDriver model) => this.drivers.Remove(model);
+
     }
 }

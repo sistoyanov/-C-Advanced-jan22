@@ -4,27 +4,26 @@ namespace EasterRaces.Repositories.Entities
     using EasterRaces.Repositories.Contracts;
     using Models.Races.Contracts;
     using System.Collections.Generic;
+    using System.Linq;
 
     public class RaceRepository : IRepository<IRace>
     {
-        public void Add(IRace model)
+        private readonly HashSet<IRace> races;
+
+        public RaceRepository()
         {
-            throw new System.NotImplementedException();
+            this.races = new HashSet<IRace>();
         }
 
-        public IReadOnlyCollection<IRace> GetAll()
-        {
-            throw new System.NotImplementedException();
-        }
+        public void Add(IRace model) => this.races.Add(model);
 
-        public IRace GetByName(string name)
-        {
-            throw new System.NotImplementedException();
-        }
 
-        public bool Remove(IRace model)
-        {
-            throw new System.NotImplementedException();
-        }
+        public IReadOnlyCollection<IRace> GetAll() => this.races;
+
+
+        public IRace GetByName(string name) => this.races.FirstOrDefault(r => r.Name == name);
+
+        public bool Remove(IRace model) => this.races.Remove(model);
+
     }
 }

@@ -33,22 +33,22 @@ namespace EasterRaces.Models.Drivers.Entities
                 this.name = value;
             }
         }
-        public ICar Car
-        {
-            get => car;
-            private set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException(ExceptionMessages.CarInvalid);
-                }
-                car = value;
-            }
-        }
+        public ICar Car { get; private set; }
+        //{
+        //    get => car;
+        //    private set
+        //    {
+        //        if (value == null)
+        //        {
+        //            throw new ArgumentNullException(ExceptionMessages.CarInvalid);
+        //        }
+        //        car = value;
+        //    }
+        //}
 
         public int NumberOfWins => this.numberOfWins; // get only
 
-        public bool CanParticipate // get only
+        public bool CanParticipate //=> this.Car != null;
         {
             //get => canParticipate;
             //private set => canParticipate = value;
@@ -67,10 +67,10 @@ namespace EasterRaces.Models.Drivers.Entities
         public void AddCar(ICar car)
         {
 
-            //if (car == null)
-            //{
-            //    throw new ArgumentNullException(string.Format(ExceptionMessages.CarInvalid));
-            //}
+            if (car == null)
+            {
+                throw new ArgumentNullException(string.Format(ExceptionMessages.CarInvalid));
+            }
 
             //this.car = car;
 
@@ -78,10 +78,10 @@ namespace EasterRaces.Models.Drivers.Entities
             //canParticipate = true;
         }
 
-        public void WinRace()
-        {
-            this.numberOfWins++;
-        }
+        public void WinRace() => this.numberOfWins++;
+        //{
+        //    this.numberOfWins++;
+        //}
     }
 
 
