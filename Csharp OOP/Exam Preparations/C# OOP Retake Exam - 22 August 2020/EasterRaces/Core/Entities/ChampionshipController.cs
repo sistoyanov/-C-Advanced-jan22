@@ -123,7 +123,7 @@ namespace EasterRaces.Core.Entities
 
         public string StartRace(string raceName)
         {
-            IRace race = raceRepository.GetByName(raceName);
+            IRace race = this.raceRepository.GetByName(raceName);
 
             if (race == null)
             {
@@ -141,10 +141,13 @@ namespace EasterRaces.Core.Entities
             IDriver second = allDrivers[1];
             IDriver third = allDrivers[2];
 
+            this.raceRepository.Remove(race);
+            first.WinRace();
+
             StringBuilder output = new StringBuilder();
-            output.AppendLine($"Driver {first.Name} wins {raceName} race.");
-            output.AppendLine($"Driver {second.Name} is second in {raceName} race.");
-            output.AppendLine($"Driver {third.Name} is third in {raceName} race.");
+            output.AppendLine($"Driver {first.Name} wins {raceName} race.")
+                  .AppendLine($"Driver {second.Name} is second in {raceName} race.")
+                  .AppendLine($"Driver {third.Name} is third in {raceName} race.");
 
             return output.ToString().TrimEnd(); ;
         }

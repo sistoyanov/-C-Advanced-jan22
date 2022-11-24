@@ -10,7 +10,6 @@ namespace EasterRaces.Models.Cars.Entities
         private const int CAR_REQUIRED_SYMBOLS = 4;
         private string model;
         private int horsePower;
-        //private double cubicCentimeters;
         private int minHorsePower;
         private int maxHorsePower;
 
@@ -53,10 +52,6 @@ namespace EasterRaces.Models.Cars.Entities
         }
 
         public double CubicCentimeters { get; private set; }
-        //{ 
-        //    get { return this.cubicCentimeters; }
-        //    private set { this.cubicCentimeters = value; }
-        //}
 
         public double CalculateRacePoints(int laps) => this.CubicCentimeters / this.HorsePower * laps;
 

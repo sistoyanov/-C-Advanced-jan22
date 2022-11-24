@@ -61,7 +61,7 @@ namespace EasterRaces.Models.Races.Entities
                 throw new ArgumentNullException(string.Format(ExceptionMessages.DriverInvalid));
             }
 
-            if (!driver.CanParticipate) // chaeck if this work
+            if (!driver.CanParticipate)
             {
                 throw new ArgumentException(string.Format(ExceptionMessages.DriverNotParticipate, driver.Name));
             }
@@ -70,11 +70,6 @@ namespace EasterRaces.Models.Races.Entities
             {
                 throw new ArgumentNullException(string.Format(ExceptionMessages.DriverAlreadyAdded, driver.Name, this.Name));
             }
-
-            //if (this.Drivers.Any(d => d.Name == driver.Name))
-            //{
-            //    throw new ArgumentNullException(string.Format(ExceptionMessages.DriverAlreadyAdded, driver.Name, this.Name));
-            //}
 
             this.drivers.Add(driver);
         }
