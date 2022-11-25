@@ -15,7 +15,7 @@ namespace TheRace.Tests
             this.race = new RaceEntry();
         }
 
-        [Test]
+        [Test]  // not working correctlly should use reflection to test
         public void Test_RaceEntryConstructor_ShouldInitializeCorrectlly()
         {
             Assert.IsNotNull(race);
