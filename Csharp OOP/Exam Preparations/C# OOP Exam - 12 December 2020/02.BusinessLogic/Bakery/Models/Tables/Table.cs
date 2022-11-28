@@ -2,11 +2,10 @@
 namespace Bakery.Models.Tables
 {
     using BakedFoods.Contracts;
-    using Bakery.Utilities.Messages;
+    using Utilities.Messages;
     using Drinks.Contracts;
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Linq;
     using System.Text;
     using Tables.Contracts;
