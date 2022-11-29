@@ -80,7 +80,7 @@ namespace WarCroft.Entities.Characters.Contracts
 					value = 0;
 				}
 
-				this.Armor = value;
+				this.armor = value;
 			}
 		}
 
@@ -94,7 +94,8 @@ namespace WarCroft.Entities.Characters.Contracts
 		{
 			this.EnsureAlive();
 
-			double hitPointsLeft = hitPoints - this.Armor;
+		    double hitPointsLeft = hitPoints - this.Armor;
+			this.Armor -= hitPoints;
 
 			if (hitPointsLeft > 0)
 			{
@@ -103,14 +104,14 @@ namespace WarCroft.Entities.Characters.Contracts
 
 			if (this.Health == 0)
 			{
-				IsAlive = false;
+				this.IsAlive = false;
 			}
 		}
 
 		public void UseItem(Item item)
 		{
             this.EnsureAlive();
-
+			item.AffectCharacter(this);
         }
 
         protected void EnsureAlive()

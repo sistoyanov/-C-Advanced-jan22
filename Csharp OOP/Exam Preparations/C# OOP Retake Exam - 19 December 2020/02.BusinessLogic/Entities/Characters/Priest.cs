@@ -1,12 +1,14 @@
-﻿using WarCroft.Entities.Characters.Contracts;
+﻿using System;
+using WarCroft.Constants;
+using WarCroft.Entities.Characters.Contracts;
 using WarCroft.Entities.Inventory;
 
 namespace WarCroft.Entities.Characters
 {
     public class Priest : Character, IHealer
     {
-        private const double PriestBaseHealth = 100;
-        private const double PriestBaseArmor = 50;
+        private const double PriestBaseHealth = 50;
+        private const double PriestBaseArmor = 25;
         private const double PriestAbilityPoints = 40;
         public Priest(string name) : base(name, PriestBaseHealth, PriestBaseArmor, PriestAbilityPoints, new Backpack())
         {
@@ -14,10 +16,14 @@ namespace WarCroft.Entities.Characters
 
         public void Heal(Character character)
         {
-            if(this.IsAlive && character.IsAlive)
+            this.EnsureAlive();
+
+            if (!character.IsAlive)
             {
-                character.Health += this.AbilityPoints;
+                throw new InvalidOperationException(ExceptionMessages.AffectedCharacterDead);
             }
+
+            character.Health += this.AbilityPoints;
         }
     }
 }

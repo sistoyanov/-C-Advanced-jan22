@@ -17,10 +17,10 @@ namespace WarCroft.Entities.Items
 
 		public virtual void AffectCharacter(Character character)
 		{
-			if (!character.IsAlive)
-			{
-				throw new InvalidOperationException(ExceptionMessages.AffectedCharacterDead);
-			}
+			//if (!character.IsAlive)
+			//{
+			//	throw new InvalidOperationException(ExceptionMessages.AffectedCharacterDead);
+			//}
 		}
 	}
 }

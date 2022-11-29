@@ -1,4 +1,6 @@
-﻿using WarCroft.Entities.Characters.Contracts;
+﻿using System;
+using WarCroft.Constants;
+using WarCroft.Entities.Characters.Contracts;
 
 namespace WarCroft.Entities.Items
 {
@@ -11,11 +13,13 @@ namespace WarCroft.Entities.Items
 
         public override void AffectCharacter(Character character)
         {
-            //base.AffectCharacter(character);
+            if (!character.IsAlive)
+            {
+                throw new InvalidOperationException(ExceptionMessages.AffectedCharacterDead);
+            }
 
             character.Health += 20;
 
-            //TODO: Implement health increase lolgic after implementing the Character class logic
         }
     }
 }
