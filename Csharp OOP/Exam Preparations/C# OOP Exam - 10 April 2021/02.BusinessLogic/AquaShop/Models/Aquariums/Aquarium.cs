@@ -86,11 +86,11 @@ namespace AquaShop.Models.Aquariums
 
             if (this.Fish.Count > 0)
             {
-                output.AppendLine(string.Join(", ", this.Fish.Select(f => f.Name)));
+                output.AppendLine($"Fish: {string.Join(", ", this.Fish.Select(f => f.Name))}");
             }
             else
             {
-                output.AppendLine("none");
+                output.AppendLine("Fish: none");
             }
 
             output.AppendLine($"Decorations: {this.Decorations.Count}");
