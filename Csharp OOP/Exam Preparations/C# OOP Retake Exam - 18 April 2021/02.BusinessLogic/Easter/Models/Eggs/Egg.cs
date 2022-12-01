@@ -46,11 +46,6 @@ namespace Easter.Models.Eggs
         public void GetColored()
         {
             this.EnergyRequired -= 10;
-
-            //if (this.EnergyRequired < 0)
-            //{
-            //    this.EnergyRequired = 0;
-            //}
         }
 
         public bool IsDone()
@@ -63,8 +58,6 @@ namespace Easter.Models.Eggs
             {
                 return false;
             }
-
-            //return this.EnergyRequired == 0;
         }
     }
 }

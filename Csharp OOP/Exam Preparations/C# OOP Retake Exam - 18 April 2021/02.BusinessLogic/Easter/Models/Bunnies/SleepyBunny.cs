@@ -10,11 +10,6 @@
         public override void Work()
         {
             this.Energy -= 15;
-
-            //if (this.Energy < 0)
-            //{
-            //    this.Energy = 0;
-            //}
         }
     }
 }
