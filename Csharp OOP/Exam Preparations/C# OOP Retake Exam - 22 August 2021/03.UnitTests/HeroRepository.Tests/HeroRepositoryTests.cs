@@ -141,7 +141,7 @@ public class HeroRepositoryTests
         this.heroRepository.Remove("Test2");
         IReadOnlyCollection<Hero> actualCollection = this.heroRepository.Heroes;
 
-        CollectionAssert.AreEqual(expectedCollection, collection);
+        CollectionAssert.AreEqual(expectedCollection, actualCollection);
     }
 
     [Test]
@@ -157,7 +157,7 @@ public class HeroRepositoryTests
 
         Hero actualHero = this.heroRepository.GetHeroWithHighestLevel();
 
-        Assert.AreEqual(expectedHero, expectedHero);
+        Assert.AreEqual(expectedHero, actualHero);
     }
 
     [Test]
@@ -179,7 +179,7 @@ public class HeroRepositoryTests
 
         Hero actualHero = this.heroRepository.GetHero("Misho");
 
-        Assert.AreEqual(expectedHero, expectedHero);
+        Assert.AreEqual(expectedHero, actualHero);
     }
 
     [Test]
@@ -205,7 +205,7 @@ public class HeroRepositoryTests
 
         IReadOnlyCollection<Hero> actualCollection = this.heroRepository.Heroes;
 
-        CollectionAssert.AreEqual(expectedCollection, collection);
+        CollectionAssert.AreEqual(expectedCollection, actualCollection);
     }
 }
 

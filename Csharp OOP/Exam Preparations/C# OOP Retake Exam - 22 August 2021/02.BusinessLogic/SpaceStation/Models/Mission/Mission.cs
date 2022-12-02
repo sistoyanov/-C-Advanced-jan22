@@ -13,9 +13,9 @@ namespace SpaceStation.Models.Mission
 
             foreach (IAstronaut astronaut in astronauts)
             {
-               while (planet.Items.Count > 0 && astronaut.Oxygen > 0)
+               while (planet.Items.Count > 0 && astronaut.CanBreath)
                {
-                   string currentItem = planet.Items.FirstOrDefault();
+                   string currentItem = planet.Items.First();
                    astronaut.Breath();
                    astronaut.Bag.Items.Add(currentItem);
                    planet.Items.Remove(currentItem);

@@ -45,7 +45,7 @@ namespace SpaceStation.Models.Astronauts
             }
         }
 
-        public bool CanBreath { get; private set; }
+        public bool CanBreath => this.Oxygen > 0;
 
         public IBag Bag { get; private set; }
 
