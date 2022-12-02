@@ -7,14 +7,14 @@ namespace CarRacing.Models.Cars
     {
         private const double TunedCarFuelAvailable = 65;
         private const double TunedCarFuelConsumtpionPerRace = 7.5;
-        public TunedCar(string make, string model, string vin, int horsePower) : base(make, model, vin, horsePower, TunedCarFuelAvailable, TunedCarFuelConsumtpionPerRace)
+        public TunedCar(string make, string model, string VIN, int horsePower) : base(make, model, VIN, horsePower, TunedCarFuelAvailable, TunedCarFuelConsumtpionPerRace)
         {
         }
 
-        public override void Drive()   /// validate if this works
+        public override void Drive()
         {
             base.Drive();
-            this.HorsePower = (int)Math.Round(this.HorsePower * 0.97);
+            this.HorsePower -= (int)Math.Round(this.HorsePower * 0.03);
         }
     }
 }

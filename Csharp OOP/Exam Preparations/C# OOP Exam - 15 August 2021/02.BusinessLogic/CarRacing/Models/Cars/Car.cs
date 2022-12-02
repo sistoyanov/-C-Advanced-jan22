@@ -13,11 +13,11 @@ namespace CarRacing.Models.Cars
         private double fuelAvailable;
         private double fuelConsumptionPerRace;
    
-        protected Car(string make, string model, string vin, int horsePower, double fuelAvailable, double fuelConsumptionPerRace)
+        protected Car(string make, string model, string VIN, int horsePower, double fuelAvailable, double fuelConsumptionPerRace)
         {
             this.Make = make;
             this.Model = model;
-            this.VIN = vin;
+            this.VIN = VIN;
             this.HorsePower = horsePower;
             this.FuelAvailable = fuelAvailable;
             this.FuelConsumptionPerRace = fuelConsumptionPerRace;

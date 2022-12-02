@@ -1,5 +1,4 @@
 ﻿using CarRacing.Models.Maps.Contracts;
-using CarRacing.Models.Racers;
 using CarRacing.Models.Racers.Contracts;
 using CarRacing.Utilities.Messages;
 
@@ -17,29 +16,27 @@ namespace CarRacing.Models.Maps
             }
             else if (!racerOne.IsAvailable())
             {
-                output = string.Format(OutputMessages.OneRacerIsNotAvailable, racerTwo.Username, racerOne.Username);
+                output = string.Format(string.Format(OutputMessages.OneRacerIsNotAvailable, racerTwo.Username, racerOne.Username));
             }
             else if (!racerTwo.IsAvailable())
             {
-                output = string.Format(OutputMessages.OneRacerIsNotAvailable, racerOne.Username, racerTwo.Username);
+                output = string.Format(string.Format(OutputMessages.OneRacerIsNotAvailable, racerOne.Username, racerTwo.Username));
             }
             else
             {
                 double racerOnechanceOfWinning = ChanceOfWinning(racerOne);
                 double racerTwochanceOfWinning = ChanceOfWinning(racerTwo);
 
-                racerOne.Car.Drive();
-                racerTwo.Car.Drive();
                 racerOne.Race();
                 racerTwo.Race();
 
                 if (racerOnechanceOfWinning > racerTwochanceOfWinning)
                 {
-                    output = string.Format(OutputMessages.RacerWinsRace, racerOne.Username, racerTwo.Username, racerOne.Username);
+                    output = string.Format(string.Format(OutputMessages.RacerWinsRace, racerOne.Username, racerTwo.Username, racerOne.Username));
                 }
                 else
                 {
-                    output = string.Format(OutputMessages.RacerWinsRace, racerOne.Username, racerTwo.Username, racerTwo.Username);
+                    output = string.Format(string.Format(OutputMessages.RacerWinsRace, racerOne.Username, racerTwo.Username, racerTwo.Username));
                 }
 
             }
