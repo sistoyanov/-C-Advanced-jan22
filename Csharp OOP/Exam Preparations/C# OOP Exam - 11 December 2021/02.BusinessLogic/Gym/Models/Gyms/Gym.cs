@@ -71,9 +71,9 @@ namespace Gym.Models.Gyms
         {
             StringBuilder output = new StringBuilder();
             output.AppendLine($"{this.Name} is a {this.GetType().Name}:")
-                  .AppendLine($"{(this.athletes.Count > 0 ? string.Join(", ", this.athletes.Select(a => a.FullName)) : "No athletes")}")
+                  .AppendLine($"Athletes: {(this.athletes.Count > 0 ? string.Join(", ", this.athletes.Select(a => a.FullName)) : "No athletes")}")
                   .AppendLine($"Equipment total count: {this.Equipment.Count}")
-                  .AppendLine($"Equipment total weight: {this.EquipmentWeight} grams");
+                  .AppendLine($"Equipment total weight: {this.EquipmentWeight:f2} grams");
 
             return output.ToString().TrimEnd();
         }
