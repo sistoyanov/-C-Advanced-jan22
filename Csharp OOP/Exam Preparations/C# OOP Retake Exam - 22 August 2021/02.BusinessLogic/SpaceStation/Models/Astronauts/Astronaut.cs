@@ -1,7 +1,9 @@
 ﻿using SpaceStation.Models.Astronauts.Contracts;
+using SpaceStation.Models.Bags;
 using SpaceStation.Models.Bags.Contracts;
 using SpaceStation.Utilities.Messages;
 using System;
+using System.Text;
 
 namespace SpaceStation.Models.Astronauts
 {
@@ -9,11 +11,13 @@ namespace SpaceStation.Models.Astronauts
     {
         private string name;
         private double oxygen;
+        private IBag bag;
 
         public Astronaut(string name, double oxygen)
         {
             this.Name = name;
             this.Oxygen = oxygen;
+            this.bag = new Backpack();
         }
 
         public string Name
@@ -47,7 +51,7 @@ namespace SpaceStation.Models.Astronauts
 
         public bool CanBreath => this.Oxygen > 0;
 
-        public IBag Bag { get; private set; }
+        public IBag Bag => this.bag;
 
         public virtual void Breath()
         {
@@ -57,6 +61,16 @@ namespace SpaceStation.Models.Astronauts
             {
                 this.Oxygen = 0;
             }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder output = new StringBuilder();
+            output.AppendLine($"Name: {this.Name}")
+                  .AppendLine($"Oxygen: {this.Oxygen}")
+                  .AppendLine($"Bag items: {(this.Bag.Items.Count > 0 ? string.Join(", ", this.Bag.Items) : "none")}");
+
+            return output.ToString().TrimEnd();
         }
     }
 }

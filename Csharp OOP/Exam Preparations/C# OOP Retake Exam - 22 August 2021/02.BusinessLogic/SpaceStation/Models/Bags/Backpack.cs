@@ -12,6 +12,10 @@ namespace SpaceStation.Models.Bags
             this.items = new List<string>();
         }
 
-        public ICollection<string> Items => this.Items;
+        public ICollection<string> Items 
+        {
+            get { return this.items; }
+            private set { this.items = value; }
+        } 
     }
 }
