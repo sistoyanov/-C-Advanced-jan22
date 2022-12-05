@@ -118,13 +118,12 @@ namespace Formula1.Core
                 throw new NullReferenceException(string.Format(ExceptionMessages.RaceDoesNotExistErrorMessage, raceName));
             }
 
-            if (pilotToAddToRace is null || pilotToAddToRace.CanRace == false || raceToRecivePilot.Pilots.Contains(pilotToAddToRace)) //|| this.raceRepository.Models.Any(r => r.Pilots.Any(p => p.FullName == pilotFullName)))
+            if (pilotToAddToRace is null || pilotToAddToRace.CanRace == false || raceToRecivePilot.Pilots.Contains(pilotToAddToRace))
             {
                 throw new InvalidOperationException(string.Format(ExceptionMessages.PilotDoesNotExistErrorMessage, pilotFullName));
             }
 
             raceToRecivePilot.AddPilot(pilotToAddToRace);
-            //this.pilotRepository.Remove(pilotToAddToRace);
             return string.Format(OutputMessages.SuccessfullyAddPilotToRace, pilotFullName, raceName);
         }
 
