@@ -146,7 +146,7 @@ namespace Formula1.Core
                 throw new InvalidOperationException(string.Format(ExceptionMessages.RaceTookPlaceErrorMessage, raceName));
             }
 
-            List<IPilot> racers = raceToStart.Pilots.OrderByDescending(p => p.Car.RaceScoreCalculator(raceToStart.NumberOfLaps)).ToList();  /// validate this
+            List<IPilot> racers = raceToStart.Pilots.OrderByDescending(p => p.Car.RaceScoreCalculator(raceToStart.NumberOfLaps)).ToList();
             raceToStart.TookPlace = true;
             IPilot winner = racers[0];
             IPilot second = racers[1];
