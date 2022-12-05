@@ -13,10 +13,6 @@ namespace Formula1.Models
         public Pilot(string fullName)
         {
             this.FullName = fullName;
-        }
-
-        public Pilot()
-        {
             //this.canRace = false;
         }
 
