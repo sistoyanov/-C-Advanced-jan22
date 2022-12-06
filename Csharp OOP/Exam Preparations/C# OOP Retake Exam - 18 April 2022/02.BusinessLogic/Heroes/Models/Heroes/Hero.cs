@@ -97,23 +97,23 @@ namespace Heroes.Models.Heroes
 
         public void TakeDamage(int points)
         {
-            this.Armour -= points;
+            this.armour -= points;
             int pointsLeft = 0;
 
-            if (this.Armour < 0)
+            if (this.armour < 0)
             {
-                pointsLeft = Math.Abs(this.Armour);
-                this.Armour = 0;
+                pointsLeft = Math.Abs(this.armour);
+                this.armour = 0;
             }
 
             if (pointsLeft > 0)
             {
-                this.Health -= pointsLeft;
+                this.health -= pointsLeft;
             }
 
-            if (this.Health < 0)
+            if (this.health < 0)
             {
-                this.Health = 0;
+                this.health = 0;
             }
 
         }

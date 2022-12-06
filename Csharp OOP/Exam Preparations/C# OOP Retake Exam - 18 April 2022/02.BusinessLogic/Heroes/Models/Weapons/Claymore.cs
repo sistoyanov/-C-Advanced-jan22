@@ -1,4 +1,6 @@
-﻿namespace Heroes.Models.Weapons
+﻿using static System.Net.Mime.MediaTypeNames;
+
+namespace Heroes.Models.Weapons
 {
     public class Claymore : Weapon
     {
@@ -9,16 +11,16 @@
 
         public override int DoDamage()
         {
-            this.Durability -= 1;
-
-            if (this.Durability == 0) /// only =
+            if (this.Durability == 0)
             {
                 return 0;
             }
             else
             {
-                return ClaymoreDamage;
+                this.Durability--;
             }
+
+            return ClaymoreDamage;
 
         }
     }

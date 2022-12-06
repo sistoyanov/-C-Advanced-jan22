@@ -9,16 +9,16 @@
 
         public override int DoDamage()
         {
-            this.Durability -= 1;
-
-            if (this.Durability == 0) /// only =
+            if (this.Durability == 0)
             {
                 return 0;
             }
             else
             {
-                return MaceDamage;
+                this.Durability--;
             }
+
+            return MaceDamage;
 
         }
     }

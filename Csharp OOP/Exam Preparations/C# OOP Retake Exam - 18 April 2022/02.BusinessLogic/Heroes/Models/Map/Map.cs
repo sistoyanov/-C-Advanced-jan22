@@ -9,51 +9,36 @@ namespace Heroes.Models.Map
     {
         public string Fight(ICollection<IHero> players)
         {
-            ICollection<Barbarian> barbarians = new List<Barbarian>();
-            ICollection<Knight> knights = new List<Knight>();
+            ICollection<IHero> barbarians = new List<IHero>();
+            ICollection<IHero> knights = new List<IHero>();
             string output = string.Empty;
 
-            foreach (IHero hero in players)
-            {
-                if (hero.GetType().Name == "Barbarian")
-                {
-                    barbarians.Add(hero as Barbarian);
-                }
-                else if (hero.GetType().Name == "Knight")
-                {
-                    knights.Add(hero as Knight);
-                }
-            }
+            knights = players.Where(h => h.GetType().Name == typeof(Knight).Name).ToList();
+            barbarians = players.Where(h => h.GetType().Name == typeof(Barbarian).Name).ToList();
 
             while (knights.Any(k => k.IsAlive) && barbarians.Any(b => b.IsAlive))
             {
-                foreach (var knight in knights)
+                foreach (Knight knight in knights)
                 {
-                    if (knight.IsAlive)
+                    foreach (Barbarian barbarian in barbarians)
                     {
-
-                        foreach (var barberian in barbarians)
+                        if (knight.IsAlive && barbarian.IsAlive)
                         {
-                            barberian.TakeDamage(knight.Weapon.DoDamage());
+                            barbarian.TakeDamage(knight.Weapon.DoDamage());
                         }
-
                     }
-
                 }
 
 
-                foreach (var barberian in barbarians)
+                foreach (Barbarian barbarian in barbarians)
                 {
-                    if (barberian.IsAlive)
+                    foreach (Knight knight in knights)
                     {
-
-                        foreach (var knight in knights)
+                        if (barbarian.IsAlive && knight.IsAlive)
                         {
-                            knight.TakeDamage(barberian.Weapon.DoDamage());
+                            knight.TakeDamage(barbarian.Weapon.DoDamage());
                         }
-
                     }
-
                 }
 
             }
