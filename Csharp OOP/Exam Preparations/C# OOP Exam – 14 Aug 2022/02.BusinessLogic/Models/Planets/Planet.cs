@@ -109,12 +109,12 @@ namespace PlanetWars.Models.Planets
 
             if (this.Army.Any(u => u.GetType().Name == "AnonymousImpactUnit"))
             {
-                totalAmount *= 0.30;
+                totalAmount *= 1.30;
             }
 
             if (this.Weapons.Any(w => w.GetType().Name == "NuclearWeapon"))
             {
-                totalAmount *= 0.45;
+                totalAmount *= 1.45;
             }
 
             return Math.Round(totalAmount, 3);
